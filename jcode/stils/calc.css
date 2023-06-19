@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(134, 116, 234);
+}
+
+.calcu{
+    position: relative;
+    display:grid;
+}
+
+.calcu .value{
+    grid-column: span ;
+    text-align: right;
+    height: 100px;
+    outline: none;
+}
+

@@ -1,0 +1,85 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+ *{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+ } 
+
+ body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+ }
+
+ .wrapper {
+    display: flex;
+ }
+
+ .wrapper .static-text{
+    color: white;
+    font-weight: 400;
+    font-size:60px;
+    top:0;
+
+ }
+
+ .dynamic-txts li {
+    list-style:none;
+    color: red;
+    font-size: 60px;
+    font-weight: 500;
+    position: relative;
+    top:0;
+    animation-name:slide;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(5);
+ }
+
+ @keyframes slide {
+    100% {
+        top: -450px;
+    }
+}
+
+ .wrapper .dynamic-txts {
+    margin-left: 15px;
+    line-height: 90px;
+    height: 90px;
+    overflow: hidden;
+ }
+
+ .dynamic-txts li{
+    position: relative;
+
+ }
+
+ .dynamic-txts li::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    left:0;
+    top:0;
+    border-left:2px solid red;
+    animation-name:animd;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(10);
+ }
+
+ @keyframes animd {
+    40%,60%{
+        left: 100%;
+    }
+
+    100%{
+        left:0;
+    }
+ }

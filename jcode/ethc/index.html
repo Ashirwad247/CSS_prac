@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="reset.css">
+    <title>Skethpsdk</title>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="title">
+            <h1>SketchPad</h1>
+        </div>
+        <div class="mode">Mode:Coloring</div>
+        <div class="content">
+            <div class="board"></div>
+            <div class="buttons">
+             <button onclick="changeColor('black')">black</button>
+             <button onclick="changeColor('white')">Erasor</button>
+             <button onclick="changeColor('gray')">Gray</button>
+             <button onclick="changeColor('random')">Random</button>
+             <button>Reset</button>
+            </div>
+            <div>
+                <input type="text" placeholder="Size of Board" value = "76" onchange="changeSize(this.value)"/>
+                <button>Set Size</button>
+            </div>   
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>

@@ -1,0 +1,40 @@
+*::after, *::before {
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    overflow: hidden;
+}
+
+.title{
+  z-index:10;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset:0;
+  margin:0;
+  flex-direction: column;
+}
+
+.subtitle{
+    margin-top: .5rem;
+
+}
+
+.hide{
+    display: none;
+}
+
+.bird{
+    --bird-top:-1000;
+    --bird-size:60px;
+    background-color: darkkhaki;
+    position: absolute;
+    width: var(--bird-size);
+    height:var(--bird-size);
+    left:var(--bird-size);
+    top: calc(var(--bird-top)  * 1px);
+    border-radius: 50%;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow: hidden;
+    background: black;
+}
+
+canvas{
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.form{
+    background-color: black;
+    font-size: 20px;
+    height: 300px;
+    width: 400px;
+    color: greenyellow;
+    z-index: 3;
+    display: flex;
+    position: absolute;
+    left: 550px;
+    top: 300px;
+}
+
+button{
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    bottom: 10px;
+    padding: 12px 18px 12px 18px;
+    border-radius: 15px;
+    color: greenyellow;
+    border: 1px solid greenyellow;
+    background-color: rgba(0, 0, 0, 0.089);
+    position: absolute;
+}
+    </style>
+    <title>JOhnsa</title>
+    <script type="module" defer>
+        import{createBack} from "/matrixx/script.js"
+        </script>
+</head>
+<body>
+    <canvas id = 'canvas1'></canvas>
+    <div class="form">Enter Your Name
+        <button onclick="createBack()">Login</button>
+    </div>
+  
+</body>
+
+</html>

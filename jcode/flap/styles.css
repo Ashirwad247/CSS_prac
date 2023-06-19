@@ -1,0 +1,71 @@
+*,*::after, *::before{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    overflow: hidden;
+    
+
+}
+
+
+.title{
+    z-index: 10;
+    position: absolutek;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+    margin: 0;
+    min-height: 100vh;
+    
+}
+
+.subtitle{
+    margin-top: .5rem ;
+
+}
+
+.hide{
+    display: none;
+}
+
+.bird{
+    background-color: yellow;
+    position: absolute;
+    --bird-size:60px;
+    width: var(--bird-size);
+    height: var(--bird-size);
+    left: var(--bird-size);
+    border-radius: 50%;
+    --bird-top:-1000;
+    top: calc(var(--bird-top) * 1px)
+
+}
+
+.pipe{
+   
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--pipe-left)*1px);;
+    width: calc(var(--pipe-width)*1px);
+}
+
+.pipe > .segment{
+    position: absolute;
+    width: 100%;
+    background: hsl(100, 75%, 50%);
+
+}
+
+.pipe > .top{
+    top: 0;
+    bottom: calc(var(--hole-top) * 1px);
+}
+
+.pipe > .bottom{
+    bottom: 0;
+    top: calc(100vh - (var(--hole-top) * 1px) + calc(var(--hole-height)*1px));
+}

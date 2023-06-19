@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEts get started</title>
+    <style>
+
+        body{
+            align-items: center;
+        }
+        .main{
+            height: 200px;
+            width: 100%;
+            background:linear-gradient(red, white);
+            border: 2px solid black;
+            border-radius: 15px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            justify-content: center;
+            align-items: center;
+            margin-top: 250px;
+        }
+        
+        .text{
+            margin-left: 4px;
+            display: flex;
+            flex-direction: column;
+           
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        input{
+            padding: 12px 18px 12px 18px;
+            border: 1px solid black;
+            font-size: 20px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+        }
+
+        button{
+
+            padding: 12px 18px 12px 18px ;
+            background-color: rgb(246, 0, 0);
+            border: none;
+            border-radius: 25px;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            transition: 0.25s;
+            width: 100px;
+            
+        }
+        button:hover{
+            background-color: white;
+            color: rgb(255, 0, 0);
+        }
+
+        .exp{
+            padding: 12px 18px 12px 18px ;
+           
+            height: 45px;
+            width: 600px;
+            margin-left: 30px;
+            border: 1px solid black;
+            font-size: 24px;
+            align-items : center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            color: rgb(116, 116, 116);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="text">
+            <input class="one" type="text" placeholder="enter a value"/>
+            <button onclick="start()">Submit</button>
+        </div>
+        <div class="exp"></div>
+    </div>
+</body>
+<script>
+const randomVal=Math.floor(Math.random() *10) +1
+console.log(randomVal)
+let count =0
+let myVal
+function start(){
+
+    
+    myVal = document.querySelector('.one') 
+    gVal = myVal.value
+    console.log(gVal)
+    let display = document.querySelector('.exp')
+    display.style.background = 'white'
+   
+    let sus
+    if(gVal>randomVal && gVal<100){
+        sus = 'Enter Smaller number' 
+        display.innerHTML=sus   
+    }
+    else if(gVal<randomVal && gVal<100){
+        sus='Enter  Greater  numer'
+        display.innerHTML=sus
+      }
+    else{
+        sus='Hooray! your score is '+(count*100)/100
+        display.innerHTML=sus
+    }   
+   
+    count++
+    console.log('cout value is '+count)
+    }
+    
+ 
+
+
+
+</script>
+</html>

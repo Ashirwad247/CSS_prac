@@ -1,0 +1,120 @@
+.gg {
+    font-family: Roboto,Arial;
+    font-style: bold;
+    margin-left: 450px;
+    margin-top: 70px;
+    font-size: 170px;
+    margin-right: 0;
+    color:rgb(34, 34, 34);
+    display: inline-block;
+}
+
+.middle-section {
+    display: flex;
+    margin-left: 500px;
+    flex-direction: row;
+
+}
+
+.search-bar {
+    font-size: 25px;
+    border-radius:50px ;
+    border-style: solid;
+    border-color:rgb(101, 99, 99);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.search-bar::placeholder {
+    font-size: 24px;
+    
+}
+
+.search-button {
+    height: 48px;
+    width: 66px;
+    background-color: rgb(240,240,240);
+    border-width: 1px;
+    border-color: rgb(192,192,192);
+    border-style: solid;
+    margin-left: -5px;
+    margin-right: 10px;
+    border-radius: 900px;
+    margin-top: 0;
+    margin-bottom:0;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-style: solid;
+    border-color: black;
+    background-color: lightgrey;
+}
+
+.search-icon {
+    height:35px;
+    margin-top: 3px;
+    
+}
+
+.fex {
+    display: flex;
+    margin-left: 470px;
+    height: 400px;
+    width:450px;
+    background-color: aqua;
+    position: relative;
+}
+
+.head {
+    display: flex;
+    border: 2px solid red;
+    position: relative;
+    flex-direction: row;
+    width: 1440px;
+    height: 30px;
+    align-items: center;
+    
+
+}
+
+@keyframes moved {
+
+
+  50% {
+    left:0;
+  }  
+  100%{
+    right: 0;
+  }
+
+
+    
+}
+
+
+.gom {
+
+    height:20px;
+    width:20px;
+    cursor: pointer;
+    position: absolute;
+    animation-name: moved;
+    animation-timing-function: ease-in;
+
+}
+
+
+.mj{
+  text-decoration: underline;
+  cursor: pointer;
+  position: absolute;
+}
+
+.kin {
+   width: 700px;
+   height:100px;
+   position: absolute;
+   flex-direction: column;
+   display: flexbox;
+}
+
+

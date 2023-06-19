@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+}
+
+h2{
+    position: relative;
+    font-size: 6em;
+    color: aliceblue;
+}
+
+h2::before{
+    position: absolute;
+    content: attr(data-text);
+    color: darkblue;
+    width:350px;
+    white-space: nowrap;
+    border-right: 4px solid blue;
+    overflow: hidden;
+    animation-name: hola;
+    animation-duration: 8s;
+    animation-timing-function: ease-in;
+    animation-direction: linear;
+    animation-iteration-count: infinite;
+    filter: drop-shadow(0 0 20px rgb(60, 60, 223)) drop-shadow(0 0 50px #0a0add);
+}
+
+@keyframes hola {
+    0%,10%,100% {
+        width:0;
+    }
+
+    70%,90% {
+        width:100%;
+    }
+}

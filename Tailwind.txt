@@ -1,0 +1,188 @@
+npm init -y
+npm install -D tailwind postcss autoprefixer vite
+npx tailwind init-p
+npx tailwind init -p
+create input.css
+in your tailwindconfingjs rplace content: content["*"],
+add "start" :"vite"
+npm run start 
+
+
+
+
+views.py
+
+from django.shortcuts import render
+import urllib.request
+import json
+# Create your views here.
+def index(request):
+    if request.method=='POST':
+        city=request.POST['city']
+    
+        
+               
+  
+        res = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=cb771e45ac79a4e8e2205c0ce66ff633').read()
+  
+
+        list_of_data = json.loads(res)
+  
+         # data for variable list_of_data
+        data = {
+            
+            "country_code": str(list_of_data['sys']['country']),
+            "coordinate": str(list_of_data['coord']['lon']) + ' '
+                        + str(list_of_data['coord']['lat']),
+            "temp": str(list_of_data['main']['temp']) + 'k',
+            "pressure": str(list_of_data['main']['pressure']),
+            "humidity": str(list_of_data['main']['humidity']),
+        }
+        print(data)
+    else:
+        city=''
+
+    return render(request, 'index.html', {'data':data,'city':city})
+
+
+
+
+the html
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="text-gray-600 font-body">
+
+  <!-- rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider  -->
+  <div class="grid md:grid-cols-3">
+    <div class="md:col-span-1 md:flex md:justify-end">
+      <nav class="text-right">
+        <div class="flex justify-between items-center">
+          <h1 class="font-bold uppercase p-4 border-b border-gray-100 ">
+            <a href="/" >Food Ninja</a>
+          </h1>
+          <div class="px-4 cursor-pointer md:hidden" id="11">
+            <svg  class="w-6 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            
+          </div>
+        </div>
+        <ul class="text-sm mt-6 mr-2 hidden md:block" id="12">
+          <li class="py-1">
+            <a href="#" class="px-2   mx-0 flex justify-end border-r-4 items-end border-transparent hover:border-red-400">
+              <span>Home</span>
+            </a>
+          </li>
+          <li class="py-1">
+            <a href="#" class="px-2   mx-0 flex justify-end border-r-4 items-end border-transparent hover:border-red-400">
+              <span>About</span>
+            </a>
+          </li>
+          <li class="py-1">
+            <a href="#" class="px-2   mx-0 flex justify-end border-r-4 items-end border-transparent hover:border-red-400">
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  
+    <main class="px-16 py-6 bg-gray-100 md:col-span-2">
+      <div class="flex justify-center md:justify-end">
+        <a href="#" class="text-primary rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider  border-slate-100 border-2">Log in</a>
+        <a href="#" class="text-primary  rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider  border-slate-100 border-2">Sign up</a>
+      </div>
+
+      <header>
+        <h2 class="text-gray-700 text-6xl font-semibold">Recipes</h2>
+        <h3 class="text-2xl font-semibold">For Ninjas</h3>
+      </header>
+
+      <div>
+        <h4 class="font-light mt-12 pb-2 border-b border-gray-200">Latest Recipes</h4>
+  
+        <div class="mt-8 grid lg:grid-cols-3 gap-10">
+          <!-- cards go here -->
+          <div class=" bg-white rounded-xl relative shadow-md overflow-hidden">
+            <img src="https://pnpfreshliving.com/wp-content/uploads/2020/07/Mexican-chilli-and-bean-stew.jpg" alt="stew" class="w-full h-32 sm:h-48 object-cover">
+            <div class="m-4">
+              <span class="font-bold">5 Bean Chili Stew</span>
+              <span class="block text-gray-500 text-sm">Recipe by Mario</span>
+            </div>
+            <div class="bg-amber-50 text-amber-700 text-xs uppercase
+            font-bold rounded-full p-2 absolute top-0 ml-2 mt-2">
+              <span>25 mins</span>
+            </div>
+          </div>
+
+
+          <div class=" bg-white rounded-xl relative shadow-md overflow-hidden">
+            <img src="https://www.cookwithmanali.com/wp-content/uploads/2021/08/Schezwan-Noodles.jpg"  class="w-full h-32 sm:h-48 object-cover" alt="noodles">
+            <div class="m-4">
+              <span class="font-bold">Chinese Noodles</span>
+              <span class="block text-gray-500 text-sm">Recipe by XingSiao</span>
+            </div>
+            <div class="bg-amber-50 text-amber-700 text-xs uppercase
+            font-bold rounded-full p-2 absolute top-0 ml-2 mt-2">
+              <span>25 mins</span>
+            </div>
+          </div>
+
+
+          
+          <div class=" bg-white rounded-xl relative shadow-md overflow-hidden">
+            <img src="https://www.licious.in/blog/wp-content/uploads/2020/12/Chicken-Curry-recipe-750x750.jpg"  class="w-full h-32 sm:h-48 object-cover" alt="Curry">
+            <div class="m-4">
+              <span class="font-bold">Curry</span>
+              <span class="block text-gray-500 text-sm">Recipe by SingSiao</span>
+            </div>
+            <div class="bg-amber-50 text-amber-700 text-xs uppercase
+            font-bold rounded-full p-2 absolute top-0 ml-2 mt-2">
+              <span>40 mins</span>
+            </div>
+          </div>
+
+
+          
+
+
+        </div>
+
+        <h4 class="font-light mt-12 pb-2 border-b border-gray-200">Most Popular</h4>
+
+        <div class="mt-8 ">
+          <!-- cards go here -->
+         
+      </div>
+
+      <div class="flex justify-center">
+        <div class="bg-secondary-100 text-secondary-300 rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider">Load more</div>
+      </div>    
+    </main>
+  </div>
+ <script>
+   const burg=document.body.querySelector('#11')
+   const menu= document.body.querySelector('#12')
+
+   burg.addEventListener('click', ()=>{
+    if(menu.classList.contains('hidden')){
+      menu.classList.remove('hidden');
+    }else{
+      menu.classList.add('hidden');
+    }
+   })
+ </script>
+</body>
+</html>
+
+
+
+
+

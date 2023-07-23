@@ -45,9 +45,63 @@ def index(request):
     return render(request, 'index.html', {'data':data,'city':city})
 
 
+the html for weather
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <link rel="stylesheet" href="public/styles.css">  {% endcomment %}
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script></script>
+    <title>Document</title>
+
+</head>
+<body class="bg-slate-100">
+    <div>
+        <nav class="flex items-center  w-full h-20  bg-blue-100">
+             <div class="flex justify-start ml-6 px-6">Weather</div>
+             <div class="flex justify-end mr-8 w-full ">
+                <ul class="flex space-x-6">
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                 </ul>
+             </div>
+            
+        </nav>
+    </div>
+
+    <div class="my-10 flex items-center justify-center flex-col h-50  w-full gap-3">
+      
+            <form  action="" method="post" class="bg-slate-300  rounded-xl h-80 flex flex-col w-96 items-center justify-center gap-4">
+                {% csrf_token %}
+                <div class="w-full flex justify-center">Enter the City:</div>
+                <input type="text" class="rounded-md h-8 w-1/2" name="city"/>
+                <button class=" px-2 py=4 rounded-2xl bg-slate-500 w-32 h-12" type="submit">Search</button>
+            </form>
+        
+    </div>
+
+    <div class="block ml-6 text-2xl">
+        <h1>City Name:{{city}}</h1>
+        <h2>Temperature:{{data.temp}}</h2>
+        <h2>Humidtiy:{{data.humidity}}</h2>
+        <h3>Coordinates:{{data.coordinate}}</h3>
+    </div>
+
+    
+</body>
+</html>
 
 
-the html
+
+
+
+
+the html for food 
 
 <html lang="en">
 <head>
@@ -181,6 +235,9 @@ the html
  </script>
 </body>
 </html>
+
+
+
 
 
 

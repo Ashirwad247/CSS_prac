@@ -1,0 +1,85 @@
+create app item
+items models
+....
+
+
+from django.db import models
+from django.contrib.auth.models import User
+
+# Create your models here.
+class Category(models.Model):
+    name=models.CharField(max_length=255)
+    
+    class Meta:
+        ordering=('name',)
+        verbose_name_plural='Categories'
+        
+    def __str__(self):
+        return self.name
+    
+class Item(models.Model):
+    category=models.ForeignKey(Category, related_name='items', on_delete=models.CASCADE)
+    name=models.CharField(max_length=255)
+    desc=models.TextField(blank=True, null=True)
+    price=models.FloatField()
+    image=models.ImageField(upload_to='item_images', blank=True, null=True)
+    is_sold=models.BooleanField(default=False)
+    created_by=models.ForeignKey(User, related_name='items', on_delete=models.CASCADE)
+    created_at=models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+     ordering=('name',)
+     verbose_name_plural='Items'
+        
+    def __str__(self):
+        return self.name
+
+admin.py
+
+from django.contrib import admin
+
+# Register your models here.
+from .models import Category, Item
+
+admin.site.register(Category)
+admin.site.register(Item)
+
+
+app views
+
+
+from django.shortcuts import render, get_object_or_404
+from .models import Item
+from .models import Category
+
+# Create your views here.
+def detail(request, pk):
+    item=get_object_or_404(Item, pk=pk)
+    related_items=Item.objects.filter(category=item.category, is_sold=False).exclude(pk=pk)[0:3]
+    
+    
+    return render(request, 'item/detail.html',{
+        'item':item,
+        'related_items':related_items,
+    })
+
+
+
+app urls
+
+from django.urls import path
+
+from . import views
+
+app_name='item'
+
+urlpatterns = [  
+    path('<int:pk>/', views.detail, name='detail'),
+]
+
+
+
+
+
+
+
